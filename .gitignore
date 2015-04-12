@@ -18,3 +18,5 @@
 /config/database.yml
 /coverage
 .DS_Store
+.ruby-gemset
+.ruby-version
