@@ -8,4 +8,9 @@ class UsersController < ApplicationController
       render :json => false
     end
   end
+
+  def index
+    @users = User.all.to_a
+    respond_success_json_data(@users.to_json, {info: 'users index'})
+  end
 end

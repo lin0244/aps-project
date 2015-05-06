@@ -11,5 +11,12 @@
 
 @product = Product.create!(name: 'Product1', product_type: 1)
 
+@equipment1 = Equipment.create!(name: 'Equipment1', eq_type: 1)
+@equipment2 = Equipment.create!(name: 'Equipment2', eq_type: 2)
+
 @production1 = Production.create!(product_id: @product.id, quantity: 100, project_id: @project.id)
 @production2 = Production.create!(product_id: @product.id, quantity: 150, project_id: @project.id)
+
+@material1 = Material.create!(name: 'Material1', quantity: '100')
+@material2 = Material.create!(name: 'Material2', quantity: '120')
+@material3 = Material.create!(name: 'Material3', quantity: '200')
