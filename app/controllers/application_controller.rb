@@ -37,4 +37,6 @@ class ApplicationController < ActionController::Base
       info: 'success'
     }
   end
+
+  def index ; end
 end
