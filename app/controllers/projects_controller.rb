@@ -1,6 +1,7 @@
 class ProjectsController < ApplicationController
   respond_to :json
 
+  # PATH: '/projects/index'
   # GET - Admin - All Projects
   # @return [Aray] JSON Array of projects
   def index

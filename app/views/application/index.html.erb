@@ -1,1 +1,129 @@
-APS-API
+<h1>APS-API</h1>
+
+
+<div id="content"><h1>Sessions</h1>
+  <dl class="box">
+    <dt class="r1">Inherits:</dt>
+    <dd class="r1">
+      <span class="inheritName">Devise::SessionsController</span>
+      <ul class="fullTree">
+        <li>Object</li>
+        <li class="next">Devise::SessionsController</li>
+        <li class="next">SessionsController</li>
+      </ul>
+    </dd>
+    <dt class="r2 last">Defined in:</dt>
+    <dd class="r2 last">app/controllers/sessions_controller.rb</dd>
+  </dl>
+  <div class="clear"></div>
+  <h2>Instance Method Summary</h2>
+  <ul class="summary">
+    <li class="public ">
+      <span class="summary_signature">
+      <a href="#create-instance_method" title="#create (instance method)">- (Object) <strong>create</strong> </a>
+      </span>
+      <span class="summary_desc"><div class='inline'>
+        <p>PATH: &#39;/sessions&#39; POST - User - Creates users session.</p>
+      </div></span>
+    </li>
+    <li class="public ">
+      <span class="summary_signature">
+      <a href="#destroy-instance_method" title="#destroy (instance method)">- <strong>destroy</strong> </a>
+      </span>
+      <span class="summary_desc"><div class='inline'>
+        <p>PATH: &#39;/logout&#39; DELETE - User - Destroys users session.</p>
+      </div></span>
+    </li>
+  </ul>
+  <div id="instance_method_details" class="method_details_list">
+    <h2>Instance Method Details</h2>
+    <div class="method_details first">
+      <h3 class="signature first" id="create-instance_method">- (<tt>Object</tt>) <strong>create</strong>
+      </h3>
+      <div class="docstring">
+        <div class="discussion">
+          <p>PATH: &#39;/sessions&#39; POST - User - Creates users session</p>
+        </div>
+      </div>
+      <div class="tags">
+        <p class="tag_title">Parameters:</p>
+        <ul class="param">
+          <li>
+            <span class='name'>params</span>
+            <span class='type'>(<tt>JSON</tt>)</span>
+            &mdash;
+            <div class='inline'>
+              <p>data: {email, password}</p>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="method_details ">
+      <h3 class="signature " id="destroy-instance_method">- <strong>destroy</strong></h3>
+      <div class="docstring">
+        <div class="discussion">
+          <p>PATH: &#39;/logout&#39; DELETE - User - Destroys users session</p>
+        </div>
+      </div>
+      <div class="tags">
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div id="content"><h1>Registrations</h1>
+  <dl class="box">
+    <dt class="r1">Inherits:</dt>
+    <dd class="r1">
+      <span class="inheritName">Devise::SessionsController</span>
+      <ul class="fullTree">
+        <li>Object</li>
+        <li class="next">Devise::SessionsController</li>
+        <li class="next">RegistrationsController</li>
+      </ul>
+    </dd>
+    <dt class="r2 last">Defined in:</dt>
+    <dd class="r2 last">app/controllers/registrations_controller.rb</dd>
+  </dl>
+  <div class="clear"></div>
+  <h2>Instance Method Summary</h2>
+  <ul class="summary">
+    <li class="public ">
+      <span class="summary_signature">
+        <a href="#create-instance_method" title="#create (instance method)">- (Object) <strong>create</strong> </a>
+      </span>
+      <span class="summary_desc">
+        <div class='inline'>
+          <p>Path: /registrations POST - User &amp; Admin - Registration action.</p>
+        </div>
+      </span>
+    </li>
+  </ul>
+  <div id="instance_method_details" class="method_details_list">
+    <h2>Instance Method Details</h2>
+    <div class="method_details first">
+      <h3 class="signature first" id="create-instance_method">- (<tt>Object</tt>) <strong>create</strong>
+      </h3>
+      <div class="docstring">
+        <div class="discussion">
+          <p>Path: /registrations POST - User &amp; Admin - Registration action. User can register to application or Admin can add the user.</p>
+        </div>
+      </div>
+      <div class="tags"><p class="tag_title">Parameters:</p>
+        <ul class="param">
+          <li>
+            <span class='name'>params</span>
+            <span class='type'>(<tt>JSON</tt>)</span>
+            &mdash;
+            <div class='inline'>
+              <p>data: {email, password, password_confirmation, name, surname, position_id, admin}</p>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
