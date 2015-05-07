@@ -20,3 +20,5 @@
 .DS_Store
 .ruby-gemset
 .ruby-version
+/doc
+.yardoc

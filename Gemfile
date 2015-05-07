@@ -17,6 +17,7 @@ gem 'active_model_serializers'
 # DOCUMENTATION
 gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'faker'
+gem 'yard'
 # AUTHENTICATION
 gem 'devise'
 
