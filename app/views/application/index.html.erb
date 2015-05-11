@@ -95,6 +95,65 @@
   </div>
 </div>
 
+<div id="content"><h1>Class: Users</h1>
+  <dl class="box">
+    <dt class="r1">Inherits:</dt>
+    <dd class="r1">
+      <span class="inheritName">ApplicationController</span>
+      <ul class="fullTree">
+        <li>Object</li>
+        <li class="next">ActionController::Base</li>
+        <li class="next">ApplicationController</li>
+        <li class="next">UsersController</li>
+      </ul>
+    </dd>
+    <dt class="r2 last">Defined in:</dt>
+    <dd class="r2 last">app/controllers/users_controller.rb</dd>
+  </dl>
+  <div class="clear"></div>
+  <div id="instance_method_details" class="method_details_list">
+    <h2>Instance Method Details</h2>
+    <div class="method_details first">
+      <h3 class="signature first" id="get_user_status-instance_method">
+        - (<tt>Boolean</tt>) <strong>get_user_status</strong>
+      </h3>
+      <div class="docstring">
+        <div class="discussion">
+          <p>GET - Admin - Check user status. Returns true if user is logged in.</p>
+        </div>
+      </div>
+      <div class="tags">
+        <p class="tag_title">Returns:</p>
+        <ul class="return">
+          <li>
+            <span class='type'>(<tt>Boolean</tt>)</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="method_details ">
+      <h3 class="signature " id="index-instance_method">- (<tt>Array</tt>) <strong>index</strong></h3>
+      <div class="docstring">
+        <div class="discussion">
+          <p>GET - Admin - Array with all users.</p>
+        </div>
+      </div>
+      <div class="tags">
+        <p class="tag_title">Returns:</p>
+        <ul class="return">
+          <li>
+            <span class='type'>(<tt>Array</tt>)</span>
+            &mdash;
+            <div class='inline'>
+              <p>JSON Array with all users</p>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
 
 <div id="content"><h1>Class: Equipment</h1>
   <dl class="box">
@@ -187,6 +246,104 @@
             &mdash;
             <div class='inline'>
               <p>JSON with equipment Object</p>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="content"><h1>Class: Material</h1>
+  <dl class="box">
+    <dt class="r1">Inherits:</dt>
+    <dd class="r1">
+      <span class="inheritName">ApplicationController</span>
+      <ul class="fullTree">
+        <li>Object</li>
+        <li class="next">ActionController::Base</li>
+        <li class="next">ApplicationController</li>
+        <li class="next">MaterialsController</li>
+      </ul>
+    </dd>
+    <dt class="r2 last">Defined in:</dt>
+    <dd class="r2 last">app/controllers/materials_controller.rb</dd>
+  </dl>
+  <div class="clear"></div>
+  <div id="instance_method_details" class="method_details_list">
+    <h2>Instance Method Details</h2>
+    <div class="method_details first">
+      <h3 class="signature first" id="create-instance_method">
+        - (<tt>Object</tt>) <strong>create</strong>
+      </h3>
+      <div class="docstring">
+        <div class="discussion">
+          <p>PATH: &#39;/materials/create&#39; POST - Add new material to database</p>
+        </div>
+      </div>
+      <div class="tags">
+        <p class="tag_title">Parameters:</p>
+        <ul class="param">
+          <li>
+            <span class='name'>params</span>
+            <span class='type'>(<tt>JSON</tt>)</span>
+            &mdash;
+            <div class='inline'>
+              <p>data: {material: {name, quantity}}</p>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="method_details ">
+      <h3 class="signature " id="index-instance_method">
+        - (<tt>Array</tt>) <strong>index</strong>
+      </h3>
+      <div class="docstring">
+        <div class="discussion">
+          <p>PATH: &#39;/materials/index&#39; GET - get materials</p>
+        </div>
+      </div>
+      <div class="tags">
+        <p class="tag_title">Returns:</p>
+        <ul class="return">
+          <li>
+            <span class='type'>(<tt>Array</tt>)</span>
+            &mdash;
+            <div class='inline'>
+              <p>JSON Array of materials obejcts</p>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="method_details ">
+      <h3 class="signature " id="show-instance_method">
+        - (<tt>Object</tt>) <strong>show</strong>
+      </h3>
+      <div class="docstring">
+        <div class="discussion">
+          <p>PATH: &#39;/materials/show&#39; GET - Add show material with given id</p>
+        </div>
+      </div>
+      <div class="tags">
+        <p class="tag_title">Parameters:</p>
+        <ul class="param">
+          <li>
+            <span class='name'>params</span>
+            <span class='type'>(<tt>JSON</tt>)</span>&mdash;
+            <div class='inline'>
+              <p>data: {id}</p>
+            </div>
+          </li>
+        </ul>
+        <p class="tag_title">Returns:</p>
+        <ul class="return">
+          <li>
+            <span class='type'>(<tt>Object</tt>)</span>
+            &mdash;
+            <div class='inline'>
+              <p>JSON with material Object</p>
             </div>
           </li>
         </ul>
