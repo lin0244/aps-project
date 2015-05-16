@@ -10,7 +10,7 @@ class EquipmentController < ApplicationController
   end
 
   # PATH: '/equipment/create'
-  # POST - Admin - Add new project
+  # POST - Add new project
   # @param [JSON] params data: {project: {name, eq_type}}
   def create
     @equipment = Equipment.new(equipment_params)

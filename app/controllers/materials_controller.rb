@@ -2,7 +2,7 @@ class MaterialsController < ApplicationController
   respond_to :json
 
   # PATH: '/materials/index'
-  # GET - Admin - All material
+  # GET - All material
   # @return [Array] JSON Array of materials
   def index
     @materials = Material.all.to_a
@@ -10,7 +10,7 @@ class MaterialsController < ApplicationController
   end
 
   # PATH: '/materials/create'
-  # POST - Admin - Add new material
+  # POST - Add new material
   # @param [JSON] params data: {material: {name, quantity}}
   def create
     @material = Material.new(material_params)

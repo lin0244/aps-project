@@ -2,7 +2,7 @@ class ProjectsController < ApplicationController
   respond_to :json
 
   # PATH: '/projects/index'
-  # GET - Admin - All Projects
+  # GET - All Projects
   # @return [Array] JSON Array of projects
   def index
     @projects = Project.all.to_a
@@ -10,7 +10,7 @@ class ProjectsController < ApplicationController
   end
 
   # PATH: '/projects/create'
-  # POST - Admin - Add new project
+  # POST - Add new project
   # @param [JSON] params data: {project: {}}
   def create
     @project = Project.new(project_params)

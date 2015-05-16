@@ -2,7 +2,7 @@ class ProductsController < ApplicationController
   respond_to :json
 
   # PATH: '/products/index'
-  # GET - Admin - All Products
+  # GET - All Products
   # @return [Aray] JSON Array of products
   def index
     @products = Product.all.to_a
@@ -10,7 +10,7 @@ class ProductsController < ApplicationController
   end
 
   # PATH: '/products/create'
-  # POST - Admin - Add new product
+  # POST - Add new product
   # @param [JSON] params data: {product: {name, product_type}}
   def create
     @product = Product.new(products_params)

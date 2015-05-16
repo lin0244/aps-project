@@ -2,7 +2,7 @@ class PositionsController < ApplicationController
   respond_to :json
 
   # PATH: '/positions/index'
-  # GET - Admin - All positions
+  # GET - All positions
   # @return [Array] JSON Array of positions
   def index
     @positions = Position.all.to_a
@@ -10,7 +10,7 @@ class PositionsController < ApplicationController
   end
 
   # PATH: '/positions/create'
-  # POST - Admin - Add new project
+  # POST - Add new project
   # @param [JSON] params data: {project: {title}}
   def create
     @position = Position.new(position_params)

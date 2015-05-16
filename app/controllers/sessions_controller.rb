@@ -5,7 +5,7 @@ class SessionsController < Devise::SessionsController
   respond_to :json
 
   # PATH: '/sessions'
-  # POST - User - Creates users session
+  # POST - Creates users session
   # @param [JSON] params data: {user: {email, password}}
   def create
     if warden.authenticate(scope: resource_name, recall: "#{controller_path}#failure")
@@ -16,11 +16,9 @@ class SessionsController < Devise::SessionsController
   end
 
   # PATH: '/logout'
-  # DELETE - User - Destroys users session
+  # DELETE - Destroys users session
   def destroy
     warden.authenticate!(scope: resource_name, recall: "#{controller_path}#failure")
-    #current_user.authentication_token = ''
-    #current_user.restore_token!
     sign_out current_user
     render status: 200,
            json: { success: true,
