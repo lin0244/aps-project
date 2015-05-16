@@ -11,7 +11,7 @@ class ProjectsController < ApplicationController
 
   # PATH: '/projects/create'
   # POST - Admin - Add new project
-  # @param [JSON] params data: {project: {email, password, password_confirmation, name, surname, position_id, admin}}
+  # @param [JSON] params data: {project: {}}
   def create
     @project = Project.new(project_params)
     if @project.save
@@ -28,6 +28,27 @@ class ProjectsController < ApplicationController
   def show
     @project = Project.find(params[:id])
     respond_success_json_data(@project.to_json, {info: 'got project'})
+  end
+
+  # PATH: '/projects/update'
+  # POST - Update project with given id
+  # @param [JSON] params data: {project: {id, title, start_date, end_date, manager_id}}
+  # @return [Object] JSON with project Object
+  def update
+    @project = Project.find(params[:id])
+    if @project.update_attributes(project_params)
+      respond_success_json_data(@product.to_json, {info: 'updated'})
+    else
+      render json: { info: 'not updated' }
+    end
+  end
+
+  # PATH: '/projects/delete'
+  # DELETE - delete project with given id
+  # @param [JSON] params data: {project: { id }}
+  def destroy
+    @project = Project.find(params[:id])
+    render json: { info: 'project deleted' } if @project.destroy
   end
 
   private

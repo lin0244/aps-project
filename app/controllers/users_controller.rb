@@ -17,4 +17,13 @@ class UsersController < ApplicationController
     @users = User.all.to_a
     respond_success_json_data(@users.to_json, {info: 'users index'})
   end
+
+
+  # PATH: '/users/delete'
+  # DELETE - delete user with given id
+  # @param [JSON] params data: {user: { id }}
+  def destroy
+    @user = User.find(params[:id])
+    render json: { info: 'user deleted' } if @user.destroy
+  end
 end

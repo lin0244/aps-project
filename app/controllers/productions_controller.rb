@@ -30,6 +30,27 @@ class ProductionsController < ApplicationController
     respond_success_json_data(@production.to_json, {info: 'got production'})
   end
 
+  # PATH: '/productions/update'
+  # POST - Update production with given id
+  # @param [JSON] params data: {production: {id, product_id, project_id, quantity}}
+  # @return [Object] JSON with production Object
+  def update
+    @production = Production.find(params[:id])
+    if @production.update_attributes(production_params)
+      respond_success_json_data(@production.to_json, {info: 'updated'})
+    else
+      render json: { info: 'not updated' }
+    end
+  end
+
+  # PATH: '/productions/delete'
+  # DELETE - delete production with given id
+  # @param [JSON] params data: {production: { id }}
+  def destroy
+    @production = Production.find(params[:id])
+    render json: { info: 'production deleted' } if @production.destroy
+  end
+
   private
 
   def production_params

@@ -22,12 +22,33 @@ class ProductsController < ApplicationController
   end
 
   # PATH: '/products/show'
-  # GET - Add show product with given id
+  # GET - show product with given id
   # @param [JSON] params data: {product: {id}}
   # @return [Object] JSON with product Object
   def show
     @product = Product.find(params[:id])
     respond_success_json_data(@product.to_json, {info: 'got product'})
+  end
+
+  # PATH: '/products/update'
+  # POST - Update product with given id
+  # @param [JSON] params data: {product: {id, name, product_type}}
+  # @return [Object] JSON with product Object
+  def update
+    @product = Product.find(params[:id])
+    if @product.update_attributes(products_params)
+      respond_success_json_data(@product.to_json, {info: 'updated'})
+    else
+      render json: { info: 'not updated' }
+    end
+  end
+
+  # PATH: '/products/delete'
+  # DELETE - delete product with given id
+  # @param [JSON] params data: {product: { id }}
+  def destroy
+    @product = Product.find(params[:id])
+    render json: { info: 'product deleted' } if @product.destroy
   end
 
   private

@@ -30,6 +30,27 @@ class EquipmentController < ApplicationController
     respond_success_json_data(@equipment.to_json, {info: 'got equipment'})
   end
 
+  # PATH: '/equipment/update'
+  # POST - Update equipment with given id
+  # @param [JSON] params data: {equipment: {id, name, eq_type}}
+  # @return [Object] JSON with equipment Object
+  def update
+    @equipment = Equipment.find(params[:id])
+    if @equipment.update_attributes(equipment_params)
+      respond_success_json_data(@equipment.to_json, {info: 'updated'})
+    else
+      render json: { info: 'not updated' }
+    end
+  end
+
+  # PATH: '/equipment/delete'
+  # DELETE - delete equipment with given id
+  # @param [JSON] params data: {equipment: { id }}
+  def destroy
+    @equipment = Equipment.find(params[:id])
+    render json: { info: 'equipment deleted' } if @equipment.destroy
+  end
+
   private
 
   def equipment_params
