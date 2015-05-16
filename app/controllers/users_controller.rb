@@ -22,8 +22,8 @@ class UsersController < ApplicationController
   # @param [JSON] params data: {position: {id}}
   # @return [Array] JSON Array with all users
   def position_index
-    @users = User.where(position_id: params[:id].all.to_a
-    respond_success_json_data(@users.to_json, {info: 'users index'})
+    @users = User.where(position_id: params[:id]).all.to_a
+    respond_success_json_data(@users.to_json, {info: 'users index by position'})
   end
 
 
