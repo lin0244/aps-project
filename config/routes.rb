@@ -7,10 +7,10 @@ Rails.application.routes.draw do
     post '/registrations', to: 'registrations#create'
     post '/sessions', to: 'sessions#create'
     delete '/logout', to: 'sessions#destroy'
-    get '/get_user_status', to: 'users#get_user_status', as: :get_user_status
-    get '/index', to: 'users#index'
-    delete '/delete', to: 'users#destroy'
-    get 'position_index', to: 'users#index'
+    get 'users/get_user_status', to: 'users#get_user_status', as: :get_user_status
+    get 'users/index', to: 'users#index'
+    delete 'users/delete', to: 'users#destroy'
+    get 'users/position_index', to: 'users#position_index'
   end
 
   scope :projects do

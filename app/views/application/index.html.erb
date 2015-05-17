@@ -634,7 +634,7 @@ run <code>rake doc:app</code>.</p>
 
 
 
-      <strong class="classes">Classes:</strong> <span class='object_link'><a href="index.html" title="ApplicationController (class)">ApplicationController</a></span>, <span class='object_link'><a href="index.html" title="Equipment (class)">Equipment</a></span>, <span class='object_link'><a href="index.html" title="EquipmentController (class)">EquipmentController</a></span>, <span class='object_link'><a href="index.html" title="Material (class)">Material</a></span>, <span class='object_link'><a href="index.html" title="MaterialsController (class)">MaterialsController</a></span>, <span class='object_link'><a href="index.html" title="Position (class)">Position</a></span>, <span class='object_link'><a href="index.html" title="PositionsController (class)">PositionsController</a></span>, <span class='object_link'><a href="index.html" title="Product (class)">Product</a></span>, <span class='object_link'><a href="index.html" title="Production (class)">Production</a></span>, <span class='object_link'><a href="index.html" title="ProductionsController (class)">ProductionsController</a></span>, <span class='object_link'><a href="index.html" title="ProductsController (class)">ProductsController</a></span>, <span class='object_link'><a href="index.html" title="Project (class)">Project</a></span>, <span class='object_link'><a href="index.html" title="ProjectsController (class)">ProjectsController</a></span>, <span class='object_link'><a href="index.html" title="RegistrationsController (class)">RegistrationsController</a></span>, <span class='object_link'><a href="index.html" title="SessionsController (class)">SessionsController</a></span>, <span class='object_link'><a href="index.html" title="User (class)">User</a></span>
+      <strong class="classes">Classes:</strong> <span class='object_link'><a href="index.html" title="ApplicationController (class)">ApplicationController</a></span>, <span class='object_link'><a href="index.html" title="Equipment (class)">Equipment</a></span>, <span class='object_link'><a href="index.html" title="EquipmentController (class)">EquipmentController</a></span>, <span class='object_link'><a href="index.html" title="Material (class)">Material</a></span>, <span class='object_link'><a href="index.html" title="MaterialsController (class)">MaterialsController</a></span>, <span class='object_link'><a href="index.html" title="Position (class)">Position</a></span>, <span class='object_link'><a href="index.html" title="PositionsController (class)">PositionsController</a></span>, <span class='object_link'><a href="index.html" title="Product (class)">Product</a></span>, <span class='object_link'><a href="index.html" title="Production (class)">Production</a></span>, <span class='object_link'><a href="index.html" title="ProductionsController (class)">ProductionsController</a></span>, <span class='object_link'><a href="index.html" title="ProductsController (class)">ProductsController</a></span>, <span class='object_link'><a href="index.html" title="Project (class)">Project</a></span>, <span class='object_link'><a href="index.html" title="ProjectsController (class)">ProjectsController</a></span>, <span class='object_link'><a href="index.html" title="RegistrationsController (class)">RegistrationsController</a></span>, <span class='object_link'><a href="index.html" title="SessionsController (class)">SessionsController</a></span>, <span class='object_link'><a href="index.html" title="User (class)">User</a></span>, <span class='object_link'><a href="index.html" title="UsersController (class)">UsersController</a></span>
 
 
 </p>
@@ -1020,6 +1020,448 @@ run <code>rake doc:app</code>.</p>
 
 
 
+
+
+<h1>Class: UsersController
+
+
+
+</h1>
+
+<dl class="box">
+
+    <dt class="r1">Inherits:</dt>
+    <dd class="r1">
+      <span class="inheritName"><span class='object_link'><a href="" title="ApplicationController (class)">ApplicationController</a></span></span>
+
+        <ul class="fullTree">
+          <li>Object</li>
+
+            <li class="next">ActionController::Base</li>
+
+            <li class="next"><span class='object_link'><a href="" title="ApplicationController (class)">ApplicationController</a></span></li>
+
+            <li class="next">UsersController</li>
+
+        </ul>
+        <a href="#" class="inheritanceTree">show all</a>
+
+      </dd>
+
+
+
+
+
+
+
+
+
+    <dt class="r2 last">Defined in:</dt>
+    <dd class="r2 last">app/controllers/users_controller.rb</dd>
+
+</dl>
+<div class="clear"></div>
+
+
+
+
+
+
+
+
+
+    <h2>
+      Instance Method Summary
+      <small>(<a href="#" class="summary_toggle">collapse</a>)</small>
+    </h2>
+
+    <ul class="summary">
+
+        <li class="public ">
+  <span class="summary_signature">
+
+      <a href="#destroy-instance_method" title="#destroy (instance method)">- (Object) <strong>destroy</strong> </a>
+
+
+
+  </span>
+
+
+
+
+
+
+
+
+
+    <span class="summary_desc"><div class='inline'>
+<p>PATH: &#39;/users/delete&#39; DELETE - delete user with given id.</p>
+</div></span>
+
+</li>
+
+
+        <li class="public ">
+  <span class="summary_signature">
+
+      <a href="#get_user_status-instance_method" title="#get_user_status (instance method)">- (Boolean) <strong>get_user_status</strong> </a>
+
+
+
+  </span>
+
+
+
+
+
+
+
+
+
+    <span class="summary_desc"><div class='inline'>
+<p>GET - Check user status.</p>
+</div></span>
+
+</li>
+
+
+        <li class="public ">
+  <span class="summary_signature">
+
+      <a href="#index-instance_method" title="#index (instance method)">- (Array) <strong>index</strong> </a>
+
+
+
+  </span>
+
+
+
+
+
+
+
+
+
+    <span class="summary_desc"><div class='inline'>
+<p>GET -  Array with all users.</p>
+</div></span>
+
+</li>
+
+
+        <li class="public ">
+  <span class="summary_signature">
+
+      <a href="#position_index-instance_method" title="#position_index (instance method)">- (Array) <strong>position_index</strong> </a>
+
+
+
+  </span>
+
+
+
+
+
+
+
+
+
+    <span class="summary_desc"><div class='inline'>
+<p>GET - Array with all users with given position.</p>
+</div></span>
+
+</li>
+
+
+    </ul>
+
+
+
+
+
+
+
+
+
+
+
+  <h3 class="inherited">Methods inherited from <span class='object_link'><a href="" title="ApplicationController (class)">ApplicationController</a></span></h3>
+  <p class="inherited"><span class='object_link'><a href="#respond_error_json-instance_method" title="ApplicationController#respond_error_json (method)">#respond_error_json</a></span>, <span class='object_link'><a href="#respond_success_json-instance_method" title="ApplicationController#respond_success_json (method)">#respond_success_json</a></span>, <span class='object_link'><a href="#respond_success_json_data-instance_method" title="ApplicationController#respond_success_json_data (method)">#respond_success_json_data</a></span></p>
+
+
+
+  <div id="instance_method_details" class="method_details_list">
+    <h2>Instance Method Details</h2>
+
+
+      <div class="method_details first">
+  <h3 class="signature first" id="destroy-instance_method">
+
+    - (<tt>Object</tt>) <strong>destroy</strong>
+
+
+
+
+
+</h3><div class="docstring">
+  <div class="discussion">
+
+<p>PATH: &#39;/users/delete&#39; DELETE - delete user with given id</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+
+    <li>
+
+        <span class='name'>params</span>
+
+
+        <span class='type'>(<tt>JSON</tt>)</span>
+
+
+
+        &mdash;
+        <div class='inline'>
+<p>data: { id }</p>
+</div>
+
+    </li>
+
+</ul>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+33
+34
+35
+36</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'app/controllers/users_controller.rb', line 33</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_destroy'>destroy</span>
+  <span class='ivar'>@user</span> <span class='op'>=</span> <span class='const'>User</span><span class='period'>.</span><span class='id identifier rubyid_find'>find</span><span class='lparen'>(</span><span class='id identifier rubyid_params'>params</span><span class='lbracket'>[</span><span class='symbol'>:id</span><span class='rbracket'>]</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_render'>render</span> <span class='label'>json:</span> <span class='lbrace'>{</span> <span class='label'>info:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>user deleted</span><span class='tstring_end'>&#39;</span></span> <span class='rbrace'>}</span> <span class='kw'>if</span> <span class='ivar'>@user</span><span class='period'>.</span><span class='id identifier rubyid_destroy'>destroy</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+
+      <div class="method_details ">
+  <h3 class="signature " id="get_user_status-instance_method">
+
+    - (<tt>Boolean</tt>) <strong>get_user_status</strong>
+
+
+
+
+
+</h3><div class="docstring">
+  <div class="discussion">
+
+<p>GET - Check user status. Returns true if user is logged in.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+
+    <li>
+
+
+        <span class='type'>(<tt>Boolean</tt>)</span>
+
+
+
+    </li>
+
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+6
+7
+8
+9
+10
+11
+12</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'app/controllers/users_controller.rb', line 6</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_get_user_status'>get_user_status</span>
+  <span class='kw'>if</span> <span class='id identifier rubyid_current_user'>current_user</span>
+    <span class='id identifier rubyid_render'>render</span> <span class='symbol'>:json</span> <span class='op'>=&gt;</span> <span class='kw'>true</span>
+  <span class='kw'>else</span>
+    <span class='id identifier rubyid_render'>render</span> <span class='symbol'>:json</span> <span class='op'>=&gt;</span> <span class='kw'>false</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+
+      <div class="method_details ">
+  <h3 class="signature " id="index-instance_method">
+
+    - (<tt>Array</tt>) <strong>index</strong>
+
+
+
+
+
+</h3><div class="docstring">
+  <div class="discussion">
+
+<p>GET -  Array with all users.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+
+    <li>
+
+
+        <span class='type'>(<tt>Array</tt>)</span>
+
+
+
+        &mdash;
+        <div class='inline'>
+<p>JSON Array with all users</p>
+</div>
+
+    </li>
+
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+16
+17
+18
+19</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'app/controllers/users_controller.rb', line 16</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_index'>index</span>
+  <span class='ivar'>@users</span> <span class='op'>=</span> <span class='const'>User</span><span class='period'>.</span><span class='id identifier rubyid_all'>all</span><span class='period'>.</span><span class='id identifier rubyid_to_a'>to_a</span>
+  <span class='id identifier rubyid_respond_success_json_data'>respond_success_json_data</span><span class='lparen'>(</span><span class='ivar'>@users</span><span class='period'>.</span><span class='id identifier rubyid_to_json'>to_json</span><span class='comma'>,</span> <span class='lbrace'>{</span><span class='label'>info:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>users index</span><span class='tstring_end'>&#39;</span></span><span class='rbrace'>}</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+
+      <div class="method_details ">
+  <h3 class="signature " id="position_index-instance_method">
+
+    - (<tt>Array</tt>) <strong>position_index</strong>
+
+
+
+
+
+</h3><div class="docstring">
+  <div class="discussion">
+
+<p>GET - Array with all users with given position.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+
+    <li>
+
+        <span class='name'>params</span>
+
+
+        <span class='type'>(<tt>JSON</tt>)</span>
+
+
+
+        &mdash;
+        <div class='inline'>
+<p>data: {id}</p>
+</div>
+
+    </li>
+
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+
+    <li>
+
+
+        <span class='type'>(<tt>Array</tt>)</span>
+
+
+
+        &mdash;
+        <div class='inline'>
+<p>JSON Array with all users</p>
+</div>
+
+    </li>
+
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+24
+25
+26
+27</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'app/controllers/users_controller.rb', line 24</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_position_index'>position_index</span>
+  <span class='ivar'>@users</span> <span class='op'>=</span> <span class='const'>User</span><span class='period'>.</span><span class='id identifier rubyid_where'>where</span><span class='lparen'>(</span><span class='label'>position_id:</span> <span class='id identifier rubyid_params'>params</span><span class='lbracket'>[</span><span class='symbol'>:id</span><span class='rbracket'>]</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_all'>all</span><span class='period'>.</span><span class='id identifier rubyid_to_a'>to_a</span>
+  <span class='id identifier rubyid_respond_success_json_data'>respond_success_json_data</span><span class='lparen'>(</span><span class='ivar'>@users</span><span class='period'>.</span><span class='id identifier rubyid_to_json'>to_json</span><span class='comma'>,</span> <span class='lbrace'>{</span><span class='label'>info:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>users index by position</span><span class='tstring_end'>&#39;</span></span><span class='rbrace'>}</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+
+  </div>
 
 
 <h1>Class: SessionsController
@@ -4747,7 +5189,7 @@ id</p>
 
 <div id="subclasses">
   <h2>Direct Known Subclasses</h2>
-  <p class="children"><span class='object_link'><a href="" title="EquipmentController (class)">EquipmentController</a></span>, <span class='object_link'><a href="" title="MaterialsController (class)">MaterialsController</a></span>, <span class='object_link'><a href="" title="PositionsController (class)">PositionsController</a></span>, <span class='object_link'><a href="" title="ProductionsController (class)">ProductionsController</a></span>, <span class='object_link'><a href="" title="ProductsController (class)">ProductsController</a></span>, <span class='object_link'><a href="" title="ProjectsController (class)">ProjectsController</a></span></p>
+  <p class="children"><span class='object_link'><a href="" title="EquipmentController (class)">EquipmentController</a></span>, <span class='object_link'><a href="" title="MaterialsController (class)">MaterialsController</a></span>, <span class='object_link'><a href="" title="PositionsController (class)">PositionsController</a></span>, <span class='object_link'><a href="" title="ProductionsController (class)">ProductionsController</a></span>, <span class='object_link'><a href="" title="ProductsController (class)">ProductsController</a></span>, <span class='object_link'><a href="" title="ProjectsController (class)">ProjectsController</a></span>, <span class='object_link'><a href="" title="UsersController (class)">UsersController</a></span></p>
 </div>
 
 
@@ -5111,7 +5553,7 @@ position_id, admin}</p>
     </div>
 
     <div id="footer">
-  Generated on Sat May 16 17:27:03 2015 by
+  Generated on Sun May 17 10:32:36 2015 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.7.6 (ruby-2.1.5).
 </div>
