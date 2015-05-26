@@ -1,12 +1,11 @@
 class SessionsController < Devise::SessionsController
-  #acts_as_token_authentication_handler_for User
-  #before_filter :ensure_params_exist
+  prepend_before_filter :require_no_authentication, :only => [:create ]
   skip_before_filter :verify_signed_out_user
   respond_to :json
 
   # PATH: '/sessions'
   # POST - Creates users session
-  # @param [JSON] params data: {user: {email, password}}
+  # @param [JSON] params data: {email, password}
   def create
     if warden.authenticate(scope: resource_name, recall: "#{controller_path}#failure")
       login_successful_for(current_user)
@@ -25,7 +24,6 @@ class SessionsController < Devise::SessionsController
                    info: 'Logged out' }
   end
 
-  # GET /api/v1/failure(.:format)
   def failure
     warden.custom_failure!
     render status: 401, json: { success: false, message: "Error with your login or password"}

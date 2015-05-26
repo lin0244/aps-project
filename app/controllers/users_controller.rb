@@ -19,17 +19,17 @@ class UsersController < ApplicationController
   end
 
   # GET - Array with all users with given position.
-  # @param [JSON] params data: {position: {id}}
+  # @param [JSON] params data: {position_id}
   # @return [Array] JSON Array with all users
   def position_index
-    @users = User.where(position_id: params[:id]).all.to_a
+    @users = User.where(position_id: params[:position_id]).all.to_a
     respond_success_json_data(@users.to_json, {info: 'users index by position'})
   end
 
 
   # PATH: '/users/delete'
   # DELETE - delete user with given id
-  # @param [JSON] params data: {user: { id }}
+  # @param [JSON] params data:  { id }
   def destroy
     @user = User.find(params[:id])
     render json: { info: 'user deleted' } if @user.destroy

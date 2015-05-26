@@ -11,9 +11,9 @@ class ProjectsController < ApplicationController
 
   # PATH: '/projects/create'
   # POST - Add new project
-  # @param [JSON] params data: {project: {}}
+  # @param [JSON] params data: {:title, :start_date, :end_date, :manager_id}
   def create
-    @project = Project.new(project_params)
+    @project = Project.new(title: params[:title], start_date: params[:start_date], end_date: params[:end_date], manager_id: params[:manager_id])
     if @project.save
       respond_success_json
     else
@@ -23,7 +23,7 @@ class ProjectsController < ApplicationController
 
   # PATH: '/projects/show'
   # GET - Add show project with given id
-  # @param [JSON] params data: {project: {id}}
+  # @param [JSON] params data: {id}
   # @return [Object] JSON with project Object
   def show
     @project = Project.find(params[:id])
@@ -32,11 +32,11 @@ class ProjectsController < ApplicationController
 
   # PATH: '/projects/update'
   # POST - Update project with given id
-  # @param [JSON] params data: {project: {id, title, start_date, end_date, manager_id}}
+  # @param [JSON] params data: {id, title, start_date, end_date, manager_id}
   # @return [Object] JSON with project Object
   def update
     @project = Project.find(params[:id])
-    if @project.update_attributes(project_params)
+    if @project.update_attributes(title: params[:title], start_date: params[:start_date], end_date: params[:end_date], manager_id: params[:manager_id])
       respond_success_json_data(@product.to_json, {info: 'updated'})
     else
       render json: { info: 'not updated' }
@@ -45,16 +45,10 @@ class ProjectsController < ApplicationController
 
   # PATH: '/projects/delete'
   # DELETE - delete project with given id
-  # @param [JSON] params data: {project: { id }}
+  # @param [JSON] params data: { id }
   def destroy
     @project = Project.find(params[:id])
     render json: { info: 'project deleted' } if @project.destroy
-  end
-
-  private
-
-  def project_params
-    params.require(:project).permit(:id, :title, :start_date, :end_date, :manager_id)
   end
 
 end

@@ -11,9 +11,9 @@ class PositionsController < ApplicationController
 
   # PATH: '/positions/create'
   # POST - Add new project
-  # @param [JSON] params data: {project: {title}}
+  # @param [JSON] params data: {title}
   def create
-    @position = Position.new(position_params)
+    @position = Position.new(title: params[:title])
     if @position.save
       respond_success_json
     else
@@ -23,7 +23,7 @@ class PositionsController < ApplicationController
 
   # PATH: '/positions/show'
   # GET - Add show position with given id
-  # @param [JSON] params data: {position: {id}}
+  # @param [JSON] params data: {id}
   # @return [Object] JSON with position Object
   def show
     @position = Position.find(params[:id])
@@ -32,12 +32,12 @@ class PositionsController < ApplicationController
 
   # PATH: '/positions/update'
   # POST - Update position with given id
-  # @param [JSON] params data: {position: {id, name, product_type}}
+  # @param [JSON] params data: {id, title}
   # @return [Object] JSON with position Object
   def update
     @position = Position.find(params[:id])
-    if @position.update_attributes(products_params)
-      respond_success_json_data(@position.to_json, {info: 'updated'})
+    if @position.update_attributes(title: params[:title])
+      respond_success_json_data(@position.to_json, {info: 'position updated'})
     else
       render json: { info: 'not updated' }
     end
@@ -45,16 +45,9 @@ class PositionsController < ApplicationController
 
   # PATH: '/positions/delete'
   # DELETE - delete position with given id
-  # @param [JSON] params data: {position: { id }}
+  # @param [JSON] params data: { id }
   def destroy
     @position = Position.find(params[:id])
     render json: { info: 'position deleted' } if @position.destroy
   end
-
-  private
-
-  def position_params
-    params.require(:position).permit(:id, :title)
-  end
-
 end

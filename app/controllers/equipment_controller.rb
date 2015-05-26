@@ -11,9 +11,9 @@ class EquipmentController < ApplicationController
 
   # PATH: '/equipment/create'
   # POST - Add new project
-  # @param [JSON] params data: {project: {name, eq_type}}
+  # @param [JSON] params data: {name, eq_type}
   def create
-    @equipment = Equipment.new(equipment_params)
+    @equipment = Equipment.new(name: params[:name], eq_type: params[:eq_type])
     if @project.save
       respond_success_json
     else
@@ -23,7 +23,7 @@ class EquipmentController < ApplicationController
 
   # PATH: '/equipment/show'
   # GET - Add show project with given id
-  # @param [JSON] params data: {equipment: {id}}
+  # @param [JSON] params data: { id }
   # @return [Object] JSON with equipment Object
   def show
     @equipment = Equipment.find(params[:id])
@@ -32,11 +32,11 @@ class EquipmentController < ApplicationController
 
   # PATH: '/equipment/update'
   # POST - Update equipment with given id
-  # @param [JSON] params data: {equipment: {id, name, eq_type}}
+  # @param [JSON] params data: {id, name, eq_type}
   # @return [Object] JSON with equipment Object
   def update
     @equipment = Equipment.find(params[:id])
-    if @equipment.update_attributes(equipment_params)
+    if @equipment.update_attributes(name: params[:name], eq_type: params[:eq_type])
       respond_success_json_data(@equipment.to_json, {info: 'updated'})
     else
       render json: { info: 'not updated' }
@@ -45,16 +45,9 @@ class EquipmentController < ApplicationController
 
   # PATH: '/equipment/delete'
   # DELETE - delete equipment with given id
-  # @param [JSON] params data: {equipment: { id }}
+  # @param [JSON] params data: { id }
   def destroy
     @equipment = Equipment.find(params[:id])
     render json: { info: 'equipment deleted' } if @equipment.destroy
   end
-
-  private
-
-  def equipment_params
-    params.require(:equpiment).permit(:id, :name, :eq_type)
-  end
-
 end

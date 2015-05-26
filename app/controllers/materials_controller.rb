@@ -12,9 +12,9 @@ class MaterialsController < ApplicationController
 
   # PATH: '/materials/create'
   # POST - Add new material
-  # @param [JSON] params data: {material: {name, quantity}}
+  # @param [JSON] params data: {name, quantity}
   def create
-    @material = Material.new(material_params)
+    @material = Material.new(name: params[:name], quantity: params[:quantity])
     if @material.save
       respond_success_json
     else
@@ -24,7 +24,7 @@ class MaterialsController < ApplicationController
 
   # PATH: '/materials/show'
   # GET - Show material with given id
-  # @param [JSON] params data: {material: {id}}
+  # @param [JSON] params data: { id }
   # @return [Object] JSON with material Object
   def show
     @material = Material.find(params[:id])
@@ -33,11 +33,11 @@ class MaterialsController < ApplicationController
 
   # PATH: '/materials/update'
   # POST - Update material with given id
-  # @param [JSON] params data: {material: {id, name, product_type}}
+  # @param [JSON] params data: {id, name, product_type}
   # @return [Object] JSON with material Object
   def update
     @material = Material.find(params[:id])
-    if @material.update_attributes(material_params)
+    if @material.update_attributes(name: params[:name], quantity: params[:quantity])
       respond_success_json_data(@material.to_json, {info: 'updated'})
     else
       render json: { info: 'not updated' }
@@ -46,16 +46,9 @@ class MaterialsController < ApplicationController
 
   # PATH: '/materials/delete'
   # DELETE - delete material with given id
-  # @param [JSON] params data: {material: { id }}
+  # @param [JSON] params data: { id }
   def destroy
     @material = Material.find(params[:id])
     render json: { info: 'material deleted' } if @material.destroy
   end
-
-  private
-
-  def material_params
-    params.require(:material).permit(:id, :name, :quantity)
-  end
-
 end

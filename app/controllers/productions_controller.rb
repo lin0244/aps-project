@@ -11,9 +11,9 @@ class ProductionsController < ApplicationController
 
   # PATH: '/productions/create'
   # POST - Add new production
-  # @param [JSON] params data: {production: {product_id, project_id, quantity}}
+  # @param [JSON] params data: {product_id, project_id, quantity}
   def create
-    @production = Production.new(production_params)
+    @production = Production.new(product_id: params[:product_id], project_id: params[:project_id], quantity: params[:quantity])
     if @production.save
       respond_success_json
     else
@@ -22,8 +22,8 @@ class ProductionsController < ApplicationController
   end
 
   # PATH: '/productions/show'
-  # GET - Add show produciont with given id
-  # @param [JSON] params data: {production: {id}}
+  # GET - Add show production with given id
+  # @param [JSON] params data: {id}
   # @return [Object] JSON with production Object
   def show
     @production = Production.find(params[:id])
@@ -32,11 +32,11 @@ class ProductionsController < ApplicationController
 
   # PATH: '/productions/update'
   # POST - Update production with given id
-  # @param [JSON] params data: {production: {id, product_id, project_id, quantity}}
+  # @param [JSON] params data: {id, product_id, project_id, quantity}
   # @return [Object] JSON with production Object
   def update
     @production = Production.find(params[:id])
-    if @production.update_attributes(production_params)
+    if @production.update_attributes(product_id: params[:product_id], project_id: params[:project_id], quantity: params[:quantity])
       respond_success_json_data(@production.to_json, {info: 'updated'})
     else
       render json: { info: 'not updated' }
@@ -45,15 +45,9 @@ class ProductionsController < ApplicationController
 
   # PATH: '/productions/delete'
   # DELETE - delete production with given id
-  # @param [JSON] params data: {production: { id }}
+  # @param [JSON] params data: { id }
   def destroy
     @production = Production.find(params[:id])
     render json: { info: 'production deleted' } if @production.destroy
-  end
-
-  private
-
-  def production_params
-    params.require(:production).permit(:id, :product_id, :project_id, :quantity)
   end
 end
