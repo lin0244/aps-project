@@ -11,9 +11,9 @@ class ProductsController < ApplicationController
 
   # PATH: '/products/create'
   # POST - Add new product
-  # @param [JSON] params data: {product: {name, product_type}}
+  # @param [JSON] params data: {name, product_type}
   def create
-    @product = Product.new(products_params)
+    @product = Product.new(name: params[:name], product_type: params[:product_type])
     if @product.save
       respond_success_json
     else
@@ -49,11 +49,5 @@ class ProductsController < ApplicationController
   def destroy
     @product = Product.find(params[:id])
     render json: { info: 'product deleted' } if @product.destroy
-  end
-
-  private
-
-  def products_params
-    params.require(:product).permit(:id, :name, :product_type)
   end
 end
