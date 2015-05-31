@@ -11,7 +11,7 @@ class ProductsController < ApplicationController
 
   # PATH: '/products/create'
   # POST - Add new product
-  # @param [JSON] params data: {name, product_type}
+  # @param [JSON] params data: { name, product_type }
   def create
     @product = Product.new(name: params[:name], product_type: params[:product_type])
     if @product.save
@@ -23,7 +23,7 @@ class ProductsController < ApplicationController
 
   # PATH: '/products/show'
   # GET - show product with given id (with url params for example: '/products/show?id=1')
-  # @param [JSON] params data: {id}
+  # @param [JSON] params data: { id }
   # @return [Object] JSON with product Object
   def show
     @product = Product.find(params[:id])
@@ -32,7 +32,7 @@ class ProductsController < ApplicationController
 
   # PATH: '/products/update'
   # POST - Update product with given id
-  # @param [JSON] params data: {id, name, product_type}
+  # @param [JSON] params data: { id, name, product_type }
   # @return [Object] JSON with product Object
   def update
     @product = Product.find(params[:id])

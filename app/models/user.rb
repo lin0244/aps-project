@@ -5,4 +5,12 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   belongs_to :position
+
+  def intern?
+    if position.title == "intern"
+      return true
+    else
+      return false
+    end
+  end
 end

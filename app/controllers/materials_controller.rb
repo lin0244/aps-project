@@ -12,7 +12,7 @@ class MaterialsController < ApplicationController
 
   # PATH: '/materials/create'
   # POST - Add new material
-  # @param [JSON] params data: {name, quantity}
+  # @param [JSON] params data: { name, quantity }
   def create
     @material = Material.new(name: params[:name], quantity: params[:quantity])
     if @material.save
@@ -33,7 +33,7 @@ class MaterialsController < ApplicationController
 
   # PATH: '/materials/update'
   # POST - Update material with given id
-  # @param [JSON] params data: {id, name, product_type}
+  # @param [JSON] params data: { id, name, quantity }
   # @return [Object] JSON with material Object
   def update
     @material = Material.find(params[:id])

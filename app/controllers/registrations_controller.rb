@@ -4,7 +4,7 @@ class RegistrationsController < Devise::SessionsController
 
   # Path: /registrations
   # POST - User & Admin - Registration action. User can register to application or Admin can add the user.
-  # @param [JSON] params data: {user: {email, password, password_confirmation, name, surname, position_id, admin}}
+  # @param [JSON] params data: { user: { email, password, password_confirmation, name, surname, position_id, admin } }
   def create
     user = User.new(user_params)
     if user.save

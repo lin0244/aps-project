@@ -575,6 +575,11 @@ $(generateTOC);
 
   </head>
   <body>
+  <div id="footer">
+  Generated on Sun May 31 21:13:47 2015 by
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.8.7.6 (ruby-2.1.5).
+</div>
     <div id="content">
       <h1>Documentation by YARD 0.8.7.6</h1>
       <div id="readme">
@@ -725,7 +730,106 @@ run <code>rake doc:app</code>.</p>
 
 
 
+    <h2>
+      Instance Method Summary
+      <small>(<a href="#" class="summary_toggle">collapse</a>)</small>
+    </h2>
 
+    <ul class="summary">
+
+        <li class="public ">
+  <span class="summary_signature">
+
+      <a href="#intern%3F-instance_method" title="#intern? (instance method)">- (Boolean) <strong>intern?</strong> </a>
+
+
+
+  </span>
+
+
+
+
+
+
+
+
+
+    <span class="summary_desc"><div class='inline'></div></span>
+
+</li>
+
+
+    </ul>
+
+
+
+
+
+  <div id="instance_method_details" class="method_details_list">
+    <h2>Instance Method Details</h2>
+
+
+      <div class="method_details first">
+  <h3 class="signature first" id="intern?-instance_method">
+
+    - (<tt>Boolean</tt>) <strong>intern?</strong>
+
+
+
+
+
+</h3><div class="docstring">
+  <div class="discussion">
+
+
+  </div>
+</div>
+<div class="tags">
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+
+    <li>
+
+
+        <span class='type'>(<tt>Boolean</tt>)</span>
+
+
+
+    </li>
+
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+9
+10
+11
+12
+13
+14
+15</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'app/models/user.rb', line 9</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_intern?'>intern?</span>
+  <span class='kw'>if</span> <span class='id identifier rubyid_position'>position</span><span class='period'>.</span><span class='id identifier rubyid_title'>title</span> <span class='op'>==</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>intern</span><span class='tstring_end'>&quot;</span></span>
+    <span class='kw'>return</span> <span class='kw'>true</span>
+  <span class='kw'>else</span>
+    <span class='kw'>return</span> <span class='kw'>false</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+
+  </div>
 
 
 <h1>Class: Project
@@ -1412,7 +1516,7 @@ run <code>rake doc:app</code>.</p>
 
         &mdash;
         <div class='inline'>
-<p>data: position_id</p>
+<p>data: { position_id }</p>
 </div>
 
     </li>
@@ -1629,7 +1733,7 @@ run <code>rake doc:app</code>.</p>
 
         &mdash;
         <div class='inline'>
-<p>data: password</p>
+<p>data: { email, password }</p>
 </div>
 
     </li>
@@ -1978,7 +2082,7 @@ run <code>rake doc:app</code>.</p>
 
         &mdash;
         <div class='inline'>
-<p>data: :start_date, :end_date, :manager_id</p>
+<p>data: { title, start_date, end_date, manager_id }</p>
 </div>
 
     </li>
@@ -2173,7 +2277,7 @@ run <code>rake doc:app</code>.</p>
 
         &mdash;
         <div class='inline'>
-<p>data: id</p>
+<p>data: { id }</p>
 </div>
 
     </li>
@@ -2254,7 +2358,7 @@ run <code>rake doc:app</code>.</p>
 
         &mdash;
         <div class='inline'>
-<p>data: title, start_date, end_date, manager_id</p>
+<p>data: { id, title, start_date, end_date, manager_id }</p>
 </div>
 
     </li>
@@ -2543,7 +2647,7 @@ params for example: &#39;/products/show?id=1&#39;).</p>
 
         &mdash;
         <div class='inline'>
-<p>data: product_type</p>
+<p>data: { name, product_type }</p>
 </div>
 
     </li>
@@ -2739,7 +2843,7 @@ params for example: &#39;/products/show?id=1&#39;)</p>
 
         &mdash;
         <div class='inline'>
-<p>data: id</p>
+<p>data: { id }</p>
 </div>
 
     </li>
@@ -2820,7 +2924,7 @@ params for example: &#39;/products/show?id=1&#39;)</p>
 
         &mdash;
         <div class='inline'>
-<p>data: name, product_type</p>
+<p>data: { id, name, product_type }</p>
 </div>
 
     </li>
@@ -3108,7 +3212,7 @@ params for example: &#39;/products/show?id=1&#39;)</p>
 
         &mdash;
         <div class='inline'>
-<p>data: eq_type</p>
+<p>data: { name, eq_type }</p>
 </div>
 
     </li>
@@ -3136,7 +3240,7 @@ params for example: &#39;/products/show?id=1&#39;)</p>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_create'>create</span>
   <span class='ivar'>@equipment</span> <span class='op'>=</span> <span class='const'>Equipment</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='label'>name:</span> <span class='id identifier rubyid_params'>params</span><span class='lbracket'>[</span><span class='symbol'>:name</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='label'>eq_type:</span> <span class='id identifier rubyid_params'>params</span><span class='lbracket'>[</span><span class='symbol'>:eq_type</span><span class='rbracket'>]</span><span class='rparen'>)</span>
-  <span class='kw'>if</span> <span class='ivar'>@project</span><span class='period'>.</span><span class='id identifier rubyid_save'>save</span>
+  <span class='kw'>if</span> <span class='ivar'>@equipment</span><span class='period'>.</span><span class='id identifier rubyid_save'>save</span>
     <span class='id identifier rubyid_respond_success_json'>respond_success_json</span>
   <span class='kw'>else</span>
     <span class='id identifier rubyid_respond_error_json'>respond_error_json</span><span class='lparen'>(</span><span class='ivar'>@equipment</span><span class='period'>.</span><span class='id identifier rubyid_errors'>errors</span><span class='period'>.</span><span class='id identifier rubyid_full_messages'>full_messages</span><span class='rparen'>)</span>
@@ -3384,7 +3488,7 @@ params for example: &#39;/products/show?id=1&#39;)</p>
 
         &mdash;
         <div class='inline'>
-<p>data: name, eq_type</p>
+<p>data: { id, name, eq_type }</p>
 </div>
 
     </li>
@@ -3672,7 +3776,7 @@ params for example: &#39;/products/show?id=1&#39;)</p>
 
         &mdash;
         <div class='inline'>
-<p>data: quantity</p>
+<p>data: { name, quantity }</p>
 </div>
 
     </li>
@@ -3948,7 +4052,7 @@ params for example: &#39;/products/show?id=1&#39;)</p>
 
         &mdash;
         <div class='inline'>
-<p>data: name, product_type</p>
+<p>data: { id, name, quantity }</p>
 </div>
 
     </li>
@@ -4236,7 +4340,7 @@ params for example: &#39;/products/show?id=1&#39;)</p>
 
         &mdash;
         <div class='inline'>
-<p>data: title</p>
+<p>data: { title }</p>
 </div>
 
     </li>
@@ -4431,7 +4535,7 @@ params for example: &#39;/products/show?id=1&#39;)</p>
 
         &mdash;
         <div class='inline'>
-<p>data: id</p>
+<p>data: { id }</p>
 </div>
 
     </li>
@@ -4512,7 +4616,7 @@ params for example: &#39;/products/show?id=1&#39;)</p>
 
         &mdash;
         <div class='inline'>
-<p>data: title</p>
+<p>data: { id, title }</p>
 </div>
 
     </li>
@@ -4801,7 +4905,7 @@ id.</p>
 
         &mdash;
         <div class='inline'>
-<p>data: project_id, quantity</p>
+<p>data: { product_id, project_id, quantity }</p>
 </div>
 
     </li>
@@ -4997,7 +5101,7 @@ id</p>
 
         &mdash;
         <div class='inline'>
-<p>data: id</p>
+<p>data: { id }</p>
 </div>
 
     </li>
@@ -5078,7 +5182,7 @@ id</p>
 
         &mdash;
         <div class='inline'>
-<p>data: product_id, project_id, quantity</p>
+<p>data: { id, product_id, project_id, quantity }</p>
 </div>
 
     </li>
@@ -5490,8 +5594,8 @@ can register to application or Admin can add the user.</p>
 
         &mdash;
         <div class='inline'>
-<p>data: {email, password, password_confirmation, name, surname,
-position_id, admin}</p>
+<p>data: { user: { email, password, password_confirmation, name, surname,
+position_id, admin } }</p>
 </div>
 
     </li>
@@ -5542,7 +5646,7 @@ position_id, admin}</p>
     </div>
 
     <div id="footer">
-  Generated on Tue May 26 23:57:39 2015 by
+  Generated on Sun May 31 21:13:47 2015 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.7.6 (ruby-2.1.5).
 </div>

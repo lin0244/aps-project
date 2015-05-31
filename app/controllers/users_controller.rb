@@ -19,7 +19,7 @@ class UsersController < ApplicationController
   end
 
   # GET - Array with all users with given position.
-  # @param [JSON] params data: {position_id}
+  # @param [JSON] params data: { position_id }
   # @return [Array] JSON Array with all users
   def position_index
     @users = User.where(position_id: params[:position_id]).all.to_a

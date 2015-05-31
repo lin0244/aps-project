@@ -11,10 +11,10 @@ class EquipmentController < ApplicationController
 
   # PATH: '/equipment/create'
   # POST - Add new project
-  # @param [JSON] params data: {name, eq_type}
+  # @param [JSON] params data: { name, eq_type }
   def create
     @equipment = Equipment.new(name: params[:name], eq_type: params[:eq_type])
-    if @project.save
+    if @equipment.save
       respond_success_json
     else
       respond_error_json(@equipment.errors.full_messages)
@@ -32,7 +32,7 @@ class EquipmentController < ApplicationController
 
   # PATH: '/equipment/update'
   # POST - Update equipment with given id
-  # @param [JSON] params data: {id, name, eq_type}
+  # @param [JSON] params data: { id, name, eq_type }
   # @return [Object] JSON with equipment Object
   def update
     @equipment = Equipment.find(params[:id])

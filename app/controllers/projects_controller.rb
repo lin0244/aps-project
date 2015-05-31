@@ -11,7 +11,7 @@ class ProjectsController < ApplicationController
 
   # PATH: '/projects/create'
   # POST - Add new project
-  # @param [JSON] params data: {:title, :start_date, :end_date, :manager_id}
+  # @param [JSON] params data: { title, start_date, end_date, manager_id }
   def create
     @project = Project.new(title: params[:title], start_date: params[:start_date], end_date: params[:end_date], manager_id: params[:manager_id])
     if @project.save
@@ -23,7 +23,7 @@ class ProjectsController < ApplicationController
 
   # PATH: '/projects/show'
   # GET - Add show project with given id
-  # @param [JSON] params data: {id}
+  # @param [JSON] params data: { id }
   # @return [Object] JSON with project Object
   def show
     @project = Project.find(params[:id])
@@ -32,7 +32,7 @@ class ProjectsController < ApplicationController
 
   # PATH: '/projects/update'
   # POST - Update project with given id
-  # @param [JSON] params data: {id, title, start_date, end_date, manager_id}
+  # @param [JSON] params data: { id, title, start_date, end_date, manager_id }
   # @return [Object] JSON with project Object
   def update
     @project = Project.find(params[:id])

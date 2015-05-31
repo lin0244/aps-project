@@ -5,7 +5,7 @@ class SessionsController < Devise::SessionsController
 
   # PATH: '/sessions'
   # POST - Creates users session
-  # @param [JSON] params data: {email, password}
+  # @param [JSON] params data: { email, password }
   def create
     if warden.authenticate(scope: resource_name, recall: "#{controller_path}#failure")
       login_successful_for(current_user)

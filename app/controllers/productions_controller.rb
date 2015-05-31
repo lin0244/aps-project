@@ -11,7 +11,7 @@ class ProductionsController < ApplicationController
 
   # PATH: '/productions/create'
   # POST - Add new production
-  # @param [JSON] params data: {product_id, project_id, quantity}
+  # @param [JSON] params data: { product_id, project_id, quantity }
   def create
     @production = Production.new(product_id: params[:product_id], project_id: params[:project_id], quantity: params[:quantity])
     if @production.save
@@ -23,7 +23,7 @@ class ProductionsController < ApplicationController
 
   # PATH: '/productions/show'
   # GET - Add show production with given id
-  # @param [JSON] params data: {id}
+  # @param [JSON] params data: { id }
   # @return [Object] JSON with production Object
   def show
     @production = Production.find(params[:id])
@@ -32,7 +32,7 @@ class ProductionsController < ApplicationController
 
   # PATH: '/productions/update'
   # POST - Update production with given id
-  # @param [JSON] params data: {id, product_id, project_id, quantity}
+  # @param [JSON] params data: { id, product_id, project_id, quantity }
   # @return [Object] JSON with production Object
   def update
     @production = Production.find(params[:id])

@@ -11,7 +11,7 @@ class PositionsController < ApplicationController
 
   # PATH: '/positions/create'
   # POST - Add new project
-  # @param [JSON] params data: {title}
+  # @param [JSON] params data: { title }
   def create
     @position = Position.new(title: params[:title])
     if @position.save
@@ -23,7 +23,7 @@ class PositionsController < ApplicationController
 
   # PATH: '/positions/show'
   # GET - Add show position with given id
-  # @param [JSON] params data: {id}
+  # @param [JSON] params data: { id }
   # @return [Object] JSON with position Object
   def show
     @position = Position.find(params[:id])
@@ -32,7 +32,7 @@ class PositionsController < ApplicationController
 
   # PATH: '/positions/update'
   # POST - Update position with given id
-  # @param [JSON] params data: {id, title}
+  # @param [JSON] params data: { id, title }
   # @return [Object] JSON with position Object
   def update
     @position = Position.find(params[:id])
