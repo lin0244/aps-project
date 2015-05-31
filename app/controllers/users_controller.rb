@@ -11,6 +11,16 @@ class UsersController < ApplicationController
     end
   end
 
+  # GET - Check if user is an intern
+  # @return [Boolean]
+  def check_intern
+    if current_user.intern?
+      render :json => true
+    else
+      render :json => false
+    end
+  end
+
   # GET -  Array with all users.
   # @return [Array] JSON Array with all users
   def index
