@@ -1,7 +1,7 @@
 class SessionsController < Devise::SessionsController
   skip_before_filter :verify_authenticity_token
   prepend_before_filter :require_no_authentication, only: :create
-  skip_filter :authenticate_user!, only: :create
+  skip_before_filter :authenticate_user!, only: :create
   skip_before_filter :verify_signed_out_user
   respond_to :json
 
