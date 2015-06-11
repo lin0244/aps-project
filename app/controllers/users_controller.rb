@@ -40,7 +40,7 @@ class UsersController < ApplicationController
   # @return [Array] JSON Array with all managers
   def managers
     @position_id = Position.where(title: 'manager').first.id
-    @users = User.where(position_id: position_id).all.to_a
+    @users = User.where(position_id: @position_id).all.to_a
     respond_success_json_data(@users.to_json, {info: 'managers'})
   end
 
