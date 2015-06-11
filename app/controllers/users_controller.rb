@@ -36,6 +36,15 @@ class UsersController < ApplicationController
     respond_success_json_data(@users.to_json, {info: 'users index by position'})
   end
 
+  # GET - Array with all managers.
+  # @return [Array] JSON Array with all managers
+  def managers
+    @position_id = Position.where(title: 'manager').first.id
+    @users = User.where(position_id: position_id).all.to_a
+    respond_success_json_data(@users.to_json, {info: 'managers'})
+  end
+
+
 
   # PATH: '/users/delete'
   # DELETE - delete user with given id

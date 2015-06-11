@@ -11,6 +11,7 @@ Rails.application.routes.draw do
     get 'users/index', to: 'users#index'
     delete 'users/delete', to: 'users#destroy'
     get 'users/position_index', to: 'users#position_index'
+    get 'users/managers', to: 'users#managers'
   end
 
   scope :projects do

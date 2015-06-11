@@ -51,4 +51,8 @@ class ProjectsController < ApplicationController
     render json: { info: 'project deleted' } if @project.destroy
   end
 
+  def check_if_possible
+
+  end
+
 end
