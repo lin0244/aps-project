@@ -59,6 +59,7 @@ class ProjectsController < ApplicationController
     Project.check(params)
     ApiLogger.info '*******'
     ApiLogger.info params
+    render json: { info: 'check' }
   end
 
 end
