@@ -57,8 +57,6 @@ class ProjectsController < ApplicationController
   # @return [Object] JSON with project Object
   def check
     Project.check(params)
-    ApiLogger.info '*******'
-    ApiLogger.info params
     render json: { info: 'check' }
   end
 
