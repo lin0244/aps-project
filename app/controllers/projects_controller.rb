@@ -51,8 +51,14 @@ class ProjectsController < ApplicationController
     render json: { info: 'project deleted' } if @project.destroy
   end
 
-  def check_if_possible
-
+  # PATH: '/projects/update'
+  # POST - Update project with given id
+  # @param [JSON] params data: project: {production: { } } }
+  # @return [Object] JSON with project Object
+  def check
+    Project.check(params)
+    ApiLogger.info '*******'
+    ApiLogger.info params
   end
 
 end
