@@ -51,13 +51,13 @@ class ProjectsController < ApplicationController
     render json: { info: 'project deleted' } if @project.destroy
   end
 
-  # PATH: '/projects/update'
-  # POST - Update project with given id
+  # PATH: '/projects/find_date'
+  # POST - Check the possible date for the new project
   # @param [JSON] params data: project: {production: { } } }
   # @return [Object] JSON with project Object
-  def check
-    Project.check(params)
-    render json: { info: 'check' }
+  def find_date
+    parsed_json = ActiveSupport::JSON.decode(params)
+    render json: { info: 'find_date' }
   end
 
 end

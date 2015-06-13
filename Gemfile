@@ -22,15 +22,6 @@ gem 'yard'
 gem 'devise'
 
 
-# group :development do
-#   gem 'capistrano', '~> 3.2.0'
-#   gem 'capistrano-rails', '~> 1.1'
-#   gem 'capistrano-bundler', '~> 1.1.3'
-#   gem 'capistrano-rvm'
-#   gem 'capistrano-bower'
-# end
-
-
 group :development do
   gem 'railroady'
 end

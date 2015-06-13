@@ -2,19 +2,23 @@ class Project < ActiveRecord::Base
   has_many :productions
   belongs_to :manager, :class_name => "User"
 
-  def self.check(params)
-    # @p = Project.where(manager_id: params[:manager_id])
-    # @p.each do |p|
+  def self.find_closest_date(manager_id, eq_ids, user_ids, days_number)
+    @projects = Project.where(manager_id: manager_id).all
+    start_date = DateTime.now
+    @projects.each do |p|
+      until p.separate?(start_date, start_date + days_number)
+        start_date += 1.day
+      end
+    end
+    # @eq_projects = []
+    # eq_ids.each do |e|
 
-    # end
-    # puts params
+
+
+
+    end_date = start_date + days_number
+    return start_date, end_date
   end
-
-  # def self.test
-  #   p1 = Project.first
-  #   p2 = Project.last
-  #   p1.separate?(p2.start_date, p2.end_date)
-  # end
 
   # method that check if project dates are not overlaping range between given start and end date
   def separate?(start_d, end_d)

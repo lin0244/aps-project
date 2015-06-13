@@ -20,7 +20,7 @@ Rails.application.routes.draw do
     get '/show', to: 'projects#show'
     post '/update', to: 'projects#update'
     delete '/delete', to: 'projects#destroy'
-    post '/check', to: 'projects#check'
+    post '/find_date', to: 'projects#find_date'
   end
 
   scope :positions do
