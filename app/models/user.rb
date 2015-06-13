@@ -5,6 +5,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   belongs_to :position
+  has_one :project
 
   def intern?
     if position.title == "intern"

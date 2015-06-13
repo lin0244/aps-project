@@ -57,7 +57,8 @@ class ProjectsController < ApplicationController
   # @return [Object] JSON with project Object
   def find_date
     parsed_json = ActiveSupport::JSON.decode(params)
+
+    Project.find_closest_date(manager_id, eq_ids, user_ids, days_number)
     render json: { info: 'find_date' }
   end
-
 end
