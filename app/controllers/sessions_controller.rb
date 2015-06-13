@@ -4,6 +4,7 @@ class SessionsController < Devise::SessionsController
   skip_before_filter :authenticate_user!, only: :create
   skip_before_filter :verify_signed_out_user
   respond_to :json
+  protect_from_forgery with: :null_session, :if => Proc.new { |c| c.request.format == 'application/aps-api' }
 
   # PATH: '/sessions'
   # POST - Creates users session
