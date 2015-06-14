@@ -14,9 +14,12 @@ class Project < ActiveRecord::Base
     end
     @users_projects = []
     positions.each do |position|
-      project = User.where(position_id: position[:id]).project_id
-      unless project.nil?
-        @users_projects << Project.find(project)
+      users = User.where(position_id: position[:id]).all
+      user.each do |u|
+        project = u.project_id
+        unless project.nil?
+          @users_projects << Project.find(project)
+        end
       end
     end
     @projects = @manager_projects + @eq_projects + @users_projects
