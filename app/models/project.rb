@@ -7,16 +7,14 @@ class Project < ActiveRecord::Base
     @manager_projects = Project.where(manager_id: manager_id).all
     @eq_projects = []
     equipment.each do |eq|
-      eq[:id]
-      production = Equipment.find(id).production_id
+      production = Equipment.find(eq[:id]).production_id
       unless production.nil?
         @eq_projects << Project.find(production.project_id)
       end
     end
     @users_projects = []
     positions.each do |position|
-      position[:id]
-      project = User.find(id).project_id
+      project = User.where(position_id: position[:id]).project_id
       unless project.nil?
         @users_projects << Project.find(project)
       end

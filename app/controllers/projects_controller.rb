@@ -57,14 +57,11 @@ class ProjectsController < ApplicationController
   # @return [Object] JSON with project Object
   def find_date
     # {"manager_id"=>"5", "days"=>"56", "positions"=>[{"id"=>"3", "qty"=>"1"}], "equipment"=>[{"id"=>"2", "qty"=>"2"}], "products"=>["3"], "controller"=>"projects", "action"=>"find_date", "project"=>{"manager_id"=>"5"}}
-    puts params
     manager_id = params[:manager_id]
     days_number = params[:days]
     positions = params[:positions]
     equipment = params[:equipment]
     products = params[:products]
-    puts equipment
-    puts positions
     start_date, end_date = Project.find_closest_date(manager_id, equipment, positions, days_number)
     render json: { info: 'find_date', start_date: start_date, end_date: end_date }
   end
