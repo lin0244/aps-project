@@ -1,6 +1,7 @@
 class ApplicationController < ActionController::Base
   skip_before_filter :verify_authenticity_token
 
+
   def respond_success_json_data(data, options = {})
     opts = success_default_options.merge(options)
     render json: { info: opts[:info], success: opts[:success], status: opts[:status], data: data }

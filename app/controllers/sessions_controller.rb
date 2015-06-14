@@ -1,16 +1,18 @@
 class SessionsController < Devise::SessionsController
   skip_before_filter :verify_authenticity_token
-  prepend_before_filter :require_no_authentication, only: :create
-  skip_before_filter :authenticate_user!, only: :create
-  skip_before_filter :verify_signed_out_user
+  skip_before_filter :authenticate_user!
   respond_to :json
-  protect_from_forgery with: :null_session, :if => Proc.new { |c| c.request.format == 'application/aps-api' }
+  protect_from_forgery with: :null_session, :if => Proc.new { |c| c.request.format == 'application/json' }
 
   # PATH: '/sessions'
   # POST - Creates users session
   # @param [JSON] params data: { email, password }
   def create
-    if warden.authenticate(scope: resource_name, recall: "#{controller_path}#failure")
+    puts params
+    resource = User.find_for_database_authentication(email: params[:email])
+    puts resource.valid_password?(params[:password])
+    if resource.valid_password?(params[:password])
+      sign_in(:user, resource)
       login_successful_for(current_user)
     else
       failure
@@ -40,9 +42,9 @@ class SessionsController < Devise::SessionsController
 
   private
 
-  def user_params
-    params.require(:user).permit(:email, :password)
-  end
+  # def user_params
+  #   params.require(:user).permit(:email, :password)
+  # end
 
   def login_successful_for(user)
     render status: 200, json: { success: true, info: 'Logged in'}

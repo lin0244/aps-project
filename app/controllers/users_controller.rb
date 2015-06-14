@@ -5,7 +5,7 @@ class UsersController < ApplicationController
   # @return [Boolean]
   def get_user_status
     if current_user
-      render :json => true
+      render json: { status: true, id: current_user.id }
     else
       render :json => false
     end

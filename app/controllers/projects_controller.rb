@@ -56,7 +56,11 @@ class ProjectsController < ApplicationController
   # @param [JSON] params data: project: {production: { } } }
   # @return [Object] JSON with project Object
   def find_date
-    parsed_json = ActiveSupport::JSON.decode(params)
+    # params: {"manager_id"=>"1", "days"=>"20", "employees"=>[{"id"=>"2", "qty"=>"1"}, {"id"=>"3", "qty"=>"1"}], "equipment"=>[{"id"=>"1", "qty"=>"1"}, {"id"=>"2", "qty"=>"1"}], "project"=>{"manager_id"=>"1"}}
+    puts params
+    puts params[:manager_id]
+    puts params[:days]
+
 
     Project.find_closest_date(manager_id, eq_ids, user_ids, days_number)
     render json: { info: 'find_date' }
