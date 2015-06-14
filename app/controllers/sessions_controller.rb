@@ -12,8 +12,11 @@ class SessionsController < Devise::SessionsController
     resource = User.find_for_database_authentication(email: params[:email])
     puts resource.valid_password?(params[:password])
     if resource.valid_password?(params[:password])
-      sign_in(:user, resource)
-      login_successful_for(current_user)
+      if sign_in(:user, resource)
+        login_successful_for(current_user)
+      else
+        failure
+      end
     else
       failure
     end

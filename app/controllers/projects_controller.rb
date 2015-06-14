@@ -56,13 +56,14 @@ class ProjectsController < ApplicationController
   # @param [JSON] params data: project: {production: { } } }
   # @return [Object] JSON with project Object
   def find_date
-    # params: {"manager_id"=>"1", "days"=>"20", "employees"=>[{"id"=>"2", "qty"=>"1"}, {"id"=>"3", "qty"=>"1"}], "equipment"=>[{"id"=>"1", "qty"=>"1"}, {"id"=>"2", "qty"=>"1"}], "project"=>{"manager_id"=>"1"}}
+    # {"manager_id"=>"5", "days"=>"56", "positions"=>[{"id"=>"3", "qty"=>"1"}], "equipment"=>[{"id"=>"2", "qty"=>"2"}], "products"=>["3"], "controller"=>"projects", "action"=>"find_date", "project"=>{"manager_id"=>"5"}}
     puts params
-    puts params[:manager_id]
-    puts params[:days]
-
-
-    Project.find_closest_date(manager_id, eq_ids, user_ids, days_number)
-    render json: { info: 'find_date' }
+    manager_id = params[:manager_id]
+    days_number = params[:days]
+    emps = params[:employees]
+    equipment = params[:equipment]
+    products = params[:products]
+    start_date, end_date = Project.find_closest_date(manager_id, equipment, emps, days_number)
+    render json: { info: 'find_date', start_date: start_date, end_date: end_date }
   end
 end

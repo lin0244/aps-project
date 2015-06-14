@@ -3,10 +3,11 @@ class Project < ActiveRecord::Base
   belongs_to :manager, :class_name => "User"
   has_many :users
 
-  def self.find_closest_date(manager_id, eq_ids, user_ids, days_number)
+  def self.find_closest_date(manager_id, equipment, user_ids, days_number)
     @manager_projects = Project.where(manager_id: manager_id).all
     @eq_projects = []
-    eq_ids.each do |id|
+    equipment.each do |eq|
+      eq[:id]
       production = Equipment.find(id).production_id
       unless production.nil?
         @eq_projects << Project.find(production.project_id)
