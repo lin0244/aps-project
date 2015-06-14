@@ -15,7 +15,7 @@ class Project < ActiveRecord::Base
     @users_projects = []
     positions.each do |position|
       users = User.where(position_id: position[:id]).all
-      user.each do |u|
+      users.each do |u|
         project = u.project_id
         unless project.nil?
           @users_projects << Project.find(project)
