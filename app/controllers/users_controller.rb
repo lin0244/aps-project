@@ -25,6 +25,18 @@ class UsersController < ApplicationController
   # @return [Array] JSON Array with all users
   def index
     @users = User.all.to_a
+    @users = @users.map do |user|
+      position = user.position.title
+      {
+        id:           user.id,
+        email:  user.email,
+        name:       user.name,
+        surname:  user.surname,
+        position_id: user.position_id,
+        position: position,
+        admin: user.admin
+      }
+    end
     respond_success_json_data(@users.to_json, {info: 'users index'})
   end
 

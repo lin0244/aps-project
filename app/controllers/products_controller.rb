@@ -50,4 +50,8 @@ class ProductsController < ApplicationController
     @product = Product.find(params[:id])
     render json: { info: 'product deleted' } if @product.destroy
   end
+
+  def types
+    @types = Product.types
+    respond_success_json_data(@types.to_json, {info: 'got product'})
 end

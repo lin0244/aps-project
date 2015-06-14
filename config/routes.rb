@@ -38,6 +38,7 @@ Rails.application.routes.draw do
     get '/show', to: 'products#show'
     post '/update', to: 'products#update'
     delete '/delete', to: 'products#destroy'
+    get '/types', to: 'products#types'
   end
 
   scope :productions do
