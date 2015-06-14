@@ -60,10 +60,12 @@ class ProjectsController < ApplicationController
     puts params
     manager_id = params[:manager_id]
     days_number = params[:days]
-    emps = params[:employees]
+    positions = params[:positions]
     equipment = params[:equipment]
     products = params[:products]
-    start_date, end_date = Project.find_closest_date(manager_id, equipment, emps, days_number)
+    puts equipment
+    puts positions
+    start_date, end_date = Project.find_closest_date(manager_id, equipment, positions, days_number)
     render json: { info: 'find_date', start_date: start_date, end_date: end_date }
   end
 end
