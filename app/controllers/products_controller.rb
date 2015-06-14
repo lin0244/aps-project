@@ -54,4 +54,5 @@ class ProductsController < ApplicationController
   def types
     @types = Product.types
     respond_success_json_data(@types.to_json, {info: 'got product'})
+  end
 end
