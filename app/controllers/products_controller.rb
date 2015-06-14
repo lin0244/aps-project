@@ -51,6 +51,9 @@ class ProductsController < ApplicationController
     render json: { info: 'product deleted' } if @product.destroy
   end
 
+  # PATH: '/products/types'
+  # GET - show product types
+  # @return [JSON] Array with product types
   def types
     @types = Product.types
     respond_success_json_data(@types.to_json, {info: 'got product'})

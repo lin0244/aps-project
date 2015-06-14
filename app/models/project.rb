@@ -29,7 +29,7 @@ class Project < ActiveRecord::Base
         start_date += 1.day
       end
     end
-    end_date = start_date + days_number
+    end_date = start_date + days_number.to_i
     return start_date, end_date
   end
 
