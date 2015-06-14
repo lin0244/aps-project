@@ -8,6 +8,7 @@ Rails.application.routes.draw do
     post '/sessions', to: 'sessions#create'
     delete '/logout', to: 'sessions#destroy'
     get 'users/get_user_status', to: 'users#get_user_status', as: :get_user_status
+    get 'users/check_intern', to: 'users#check_intern', as: :check_intern
     get 'users/index', to: 'users#index'
     delete 'users/delete', to: 'users#destroy'
     get 'users/position_index', to: 'users#position_index'
