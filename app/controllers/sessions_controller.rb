@@ -30,6 +30,14 @@ class SessionsController < Devise::SessionsController
                    info: 'Logged out' }
   end
 
+  def get_user_status
+    if current_user
+      render json: { status: true, id: current_user.id }
+    else
+      render :json => false
+    end
+  end
+
   def failure
     warden.custom_failure!
     render status: 401, json: { success: false, message: "Error with your login or password"}
