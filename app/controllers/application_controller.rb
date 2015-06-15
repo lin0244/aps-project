@@ -1,5 +1,6 @@
 class ApplicationController < ActionController::Base
-  acts_as_token_authentication_handler_for User
+  #acts_as_token_authentication_handler_for User
+  skip_before_filter :verify_authenticity_token
   protect_from_forgery with: :null_session
   before_action :add_headers
 

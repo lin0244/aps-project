@@ -5,7 +5,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
    ## Token Authenticatable
-  acts_as_token_authenticatable
+  #acts_as_token_authenticatable
 
   belongs_to :position
   has_one :project

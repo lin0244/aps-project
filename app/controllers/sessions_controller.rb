@@ -2,7 +2,8 @@ class SessionsController < Devise::SessionsController
   respond_to :json
   skip_before_filter :verify_signed_out_user, only: :destroy
   skip_before_filter :verify_authenticity_token
-  acts_as_token_authentication_handler_for User, only: [:destroy, :get_user_status]
+  skip_before_filter :authenticate_user!
+  #acts_as_token_authentication_handler_for User, only: [:destroy, :get_user_status]
 
   # PATH: '/sessions'
   # POST - Creates users session
@@ -24,7 +25,7 @@ class SessionsController < Devise::SessionsController
   # DELETE - Destroys users session
   def destroy
     warden.authenticate!(scope: resource_name, recall: "#{controller_path}#failure")
-    current_user.update authentication_token: nil
+    #current_user.update authentication_token: nil
     sign_out current_user
     render status: 200,
            json: { success: true,
@@ -64,7 +65,8 @@ class SessionsController < Devise::SessionsController
   # end
 
   def login_successful_for(user)
-    render :json => {:user => current_user,:status => :ok,:authentication_token => current_user.authentication_token }
+    render :json => {:user => current_user,:status => :ok}
+      #,:authentication_token => current_user.authentication_token }
   end
 
 end
