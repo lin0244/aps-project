@@ -4,9 +4,12 @@ class UsersController < ApplicationController
   # GET - Check user status. Returns true if user is logged in.
   # @return [Boolean]
   def get_user_status
+    puts ' get status:'
     if current_user
+      puts 'true'
       render json: { status: true, id: current_user.id }
     else
+      puts 'false'
       render :json => false
     end
   end

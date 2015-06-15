@@ -13,6 +13,8 @@ class SessionsController < Devise::SessionsController
     puts resource.valid_password?(params[:password])
     if resource.valid_password?(params[:password])
       if sign_in(:user, resource)
+        puts current_user
+        puts current_user.signed_in?
         login_successful_for(current_user)
       else
         wrong_data
