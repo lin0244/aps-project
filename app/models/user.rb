@@ -6,7 +6,6 @@ class User < ActiveRecord::Base
 
    ## Token Authenticatable
   acts_as_token_authenticatable
-  field :authentication_token
 
   belongs_to :position
   has_one :project
