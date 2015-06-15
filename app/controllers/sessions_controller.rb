@@ -8,9 +8,7 @@ class SessionsController < Devise::SessionsController
   # POST - Creates users session
   # @param [JSON] params data: { email, password }
   def create
-    puts params
     resource = User.find_for_database_authentication(email: params[:email])
-    puts resource.valid_password?(params[:password])
     if resource.valid_password?(params[:password])
       if sign_in(:user, resource)
         login_successful_for(current_user)

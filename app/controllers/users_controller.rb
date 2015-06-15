@@ -1,15 +1,14 @@
 class UsersController < ApplicationController
+  skip_before_filter :verify_authenticity_token
+  before_filter :authenticate_user!
   respond_to :json
 
   # GET - Check user status. Returns true if user is logged in.
   # @return [Boolean]
   def get_user_status
-    puts ' get status:'
     if current_user
-      puts 'true'
       render json: { status: true, id: current_user.id }
     else
-      puts 'false'
       render :json => false
     end
   end
@@ -32,12 +31,12 @@ class UsersController < ApplicationController
       position = user.position.title
       {
         id:           user.id,
-        email:  user.email,
-        name:       user.name,
-        surname:  user.surname,
-        position_id: user.position_id,
-        position: position,
-        admin: user.admin
+        email:        user.email,
+        name:         user.name,
+        surname:      user.surname,
+        position_id:  user.position_id,
+        position:     position,
+        admin:        user.admin
       }
     end
     respond_success_json_data(@users.to_json, {info: 'users index'})
