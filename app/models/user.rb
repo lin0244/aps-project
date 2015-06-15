@@ -4,6 +4,10 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
+   ## Token Authenticatable
+  acts_as_token_authenticatable
+  field :authentication_token
+
   belongs_to :position
   has_one :project
 
