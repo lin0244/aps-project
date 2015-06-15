@@ -1,8 +1,7 @@
 class SessionsController < Devise::SessionsController
-  skip_before_filter :verify_authenticity_token
-  skip_before_filter :authenticate_user!
   respond_to :json
-  protect_from_forgery with: :null_session, :if => Proc.new { |c| c.request.format == 'application/json' }
+  skip_before_filter :verify_signed_out_user, only: :destroy
+  skip_before_filter :verify_authenticity_token
   acts_as_token_authentication_handler_for User, only: [:destroy]
 
   # PATH: '/sessions'
