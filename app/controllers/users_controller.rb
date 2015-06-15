@@ -1,7 +1,6 @@
 class UsersController < ApplicationController
-  skip_before_filter :verify_authenticity_token
-  before_filter :authenticate_user!
   respond_to :json
+  skip_before_filter :authenticate_user!
 
   # GET - Check user status. Returns true if user is logged in.
   # @return [Boolean]
