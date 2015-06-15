@@ -2,7 +2,7 @@ class SessionsController < Devise::SessionsController
   respond_to :json
   skip_before_filter :verify_signed_out_user, only: :destroy
   skip_before_filter :verify_authenticity_token
-  acts_as_token_authentication_handler_for User, only: [:destroy]
+  acts_as_token_authentication_handler_for User, only: [:destroy, :get_user_status]
 
   # PATH: '/sessions'
   # POST - Creates users session
