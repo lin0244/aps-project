@@ -7,13 +7,20 @@ class ProjectsController < ApplicationController
   def index
     @projects = Project.all.to_a
     @projects = @projects.map do |project|
-      name = project.manager.name
-      surname = project.manager.surname
+      unless project.manager.nil?
+        name = project.manager.name
+        surname = project.manager.surname
+      else
+        name = ''
+        surname = ''
+      end
       {
         id:           project.id,
-        title:  project.email,
+        title:        project.title,
         manager_name:       name,
         manager_surname:  surname,
+        start_date: project.start_date,
+        end_date: project.end_date
 
       }
     end
