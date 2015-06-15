@@ -20,6 +20,7 @@ gem 'faker'
 gem 'yard'
 # AUTHENTICATION
 gem 'devise'
+gem 'simple_token_authentication'
 
 
 group :development do

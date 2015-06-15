@@ -3,6 +3,7 @@ class SessionsController < Devise::SessionsController
   skip_before_filter :authenticate_user!
   respond_to :json
   protect_from_forgery with: :null_session, :if => Proc.new { |c| c.request.format == 'application/json' }
+  acts_as_token_authentication_handler_for User, only: [:destroy]
 
   # PATH: '/sessions'
   # POST - Creates users session
@@ -24,12 +25,15 @@ class SessionsController < Devise::SessionsController
   # DELETE - Destroys users session
   def destroy
     warden.authenticate!(scope: resource_name, recall: "#{controller_path}#failure")
+    current_user.update authentication_token: nil
     sign_out current_user
     render status: 200,
            json: { success: true,
                    info: 'Logged out' }
   end
 
+  # GET - Check user status. Returns true if user is logged in.
+  # @return [Boolean]
   def get_user_status
     if current_user
       render json: { status: true, id: current_user.id }
@@ -61,7 +65,7 @@ class SessionsController < Devise::SessionsController
   # end
 
   def login_successful_for(user)
-    render status: 200, json: { success: true, info: 'Logged in'}
+    render :json => {:user => current_user,:status => :ok,:authentication_token => current_user.authentication_token }
   end
 
 end

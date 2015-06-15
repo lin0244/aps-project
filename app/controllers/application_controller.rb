@@ -1,5 +1,6 @@
 class ApplicationController < ActionController::Base
   skip_before_filter :verify_authenticity_token
+  acts_as_token_authentication_handler_for User
 
 
   def respond_success_json_data(data, options = {})
