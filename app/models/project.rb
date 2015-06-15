@@ -36,7 +36,7 @@ class Project < ActiveRecord::Base
   # method that check if project dates are not overlaping range between given start and end date
   def separate?(start_d, end_d)
     range = start_d..end_d
-    check = start_date
+    check = start_d
     while check < end_date
       return false if range.cover?(check)
       check += 1.day
@@ -45,3 +45,5 @@ class Project < ActiveRecord::Base
   end
 
 end
+
+

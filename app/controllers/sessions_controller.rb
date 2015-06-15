@@ -15,7 +15,7 @@ class SessionsController < Devise::SessionsController
       if sign_in(:user, resource)
         login_successful_for(current_user)
       else
-        failure
+        wrong_data
       end
     else
       failure
@@ -35,6 +35,11 @@ class SessionsController < Devise::SessionsController
   def failure
     warden.custom_failure!
     render status: 401, json: { success: false, message: "Error with your login or password"}
+  end
+
+  def wrong_data
+    warden.custom_failure!
+    render status: 401, json: { success: false, message: "Can't sign in"}
   end
 
   protected

@@ -6,6 +6,17 @@ class ProjectsController < ApplicationController
   # @return [Array] JSON Array of projects
   def index
     @projects = Project.all.to_a
+    @projects = @projects.map do |project|
+      name = project.manager.name
+      surname = project.manager.surname
+      {
+        id:           project.id,
+        title:  project.email,
+        manager_name:       name,
+        manager_surname:  surname,
+
+      }
+    end
     respond_success_json_data(@projects.to_json, {info: 'projects index'})
   end
 
